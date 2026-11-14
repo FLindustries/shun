@@ -77,7 +77,7 @@
       { "@type": "Question", "name": "Do I need an account to use Shun?", "acceptedAnswer": { "@type": "Answer", "text": "No. There's no Shun account and no sign-up. If you buy Pro, payment runs through ExtensionPay's checkout with Stripe, which asks for an email address for the purchase." } },
       { "@type": "Question", "name": "What does Shun do with my data?", "acceptedAnswer": { "@type": "Answer", "text": "Your blocklists and settings stay in your browser. Shun has no analytics and no tracking, and it doesn't send your lists anywhere. The only outside service it talks to is ExtensionPay, for plan prices and payments." } },
       { "@type": "Question", "name": "Does blocking a channel tell YouTube or the creator?", "acceptedAnswer": { "@type": "Answer", "text": "No. Shun hides videos on your screen. It sends nothing to YouTube and the channel isn't notified. That also means it doesn't train YouTube's recommendations: YouTube may keep suggesting the channel, and Shun keeps hiding it. A video you open from a direct link still plays." } },
-      { "@type": "Question", "name": "How do keywords and topics match video titles?", "acceptedAnswer": { "@type": "Answer", "text": "Keywords match whole words in a video's title, in any language and alphabet: blocking \"game\" hides \"Game night\" but not \"Endgame\". In search results Shun also checks the description snippet. A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own." } },
+      { "@type": "Question", "name": "How do keywords and topics match video titles?", "acceptedAnswer": { "@type": "Answer", "text": "Keywords match whole words in a video's title, in any language and alphabet: blocking \"game\" hides \"Game night\" but not \"Endgame\". Only the title is checked, not the description. A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own." } },
       { "@type": "Question", "name": "Can I move my blocklist to another computer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with Export and Import in Shun's Settings. Export saves your blocks and settings to a JSON file, and Import loads that file on the other computer." } },
       { "@type": "Question", "name": "Can I use Shun as a parental control?", "acceptedAnswer": { "@type": "Answer", "text": "Only loosely. Strict Mode (Pro) asks for a password before anyone can unblock channels, remove keywords or turn off Hide Shorts. It can't stop someone with access to Chrome's extension settings from turning Shun off or removing it, so it isn't a full parental-control tool." } },
       { "@type": "Question", "name": "What happens when YouTube changes its layout?", "acceptedAnswer": { "@type": "Answer", "text": "Something may slip through for a while. Shun works on YouTube's pages, and YouTube changes them often, which can break any extension like it until an update ships. If you spot a problem, use Report a Bug in Shun's Settings or email shun.support@gmail.com." } }
@@ -186,7 +186,7 @@
             <p>Type a word or phrase and videos with it in the title are hidden. Or switch on one of 35 ready-made topics, each with its own list of related terms.</p>
             <ul class="ticks">
               <li>Whole words only: “game” hides “Game night” but not “Endgame”</li>
-              <li>Works in any language and alphabet. In search, the description snippet is checked too</li>
+              <li>Works in any language and alphabet. Only the title is checked, not the description</li>
               <li>Topic word lists cover English and Italian titles. Switch off any term; with Pro, add your own</li>
               <li>Gaming, Tech, AI Hype, News and Sports let some analysis, history and documentary titles through</li>
               <li>3 videos from one channel hidden for the same topic? Shun hides the whole channel. Untag undoes it</li>
@@ -399,7 +399,7 @@
           </details>
           <details>
             <summary>How do keywords and topics match video titles?</summary>
-            <div class="faq-answer"><p>Keywords match whole words in a video's title, in any language and alphabet: blocking “game” hides “Game night” but not “Endgame”. In search results Shun also checks the description snippet.</p><p>A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own.</p></div>
+            <div class="faq-answer"><p>Keywords match whole words in a video's title, in any language and alphabet: blocking “game” hides “Game night” but not “Endgame”. Only the title is checked, not the description.</p><p>A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own.</p></div>
           </details>
           <details>
             <summary>Can I move my blocklist to another computer?</summary>
