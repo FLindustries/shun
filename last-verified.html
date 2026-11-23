@@ -104,14 +104,14 @@
       </nav>
 
       <article class="article">
-        <p class="answer"><strong>Short answer</strong>Yes, as of November 23, 2026. Channel, keyword and topic blocking, Hide Shorts, Hide comments and the tools inside YouTube were checked on youtube.com that day, and most of what this site says held up. Two things did not, and they've been taken off this site and the store listing: a channel block doesn't hide Shorts inside Shorts shelves, and keywords often don't match in Japanese or Chinese titles. Details below.</p>
+        <p class="answer"><strong>Short answer</strong>Yes, as of November 23, 2026. Channel, keyword and topic blocking, Hide Shorts, Hide comments and the tools inside YouTube were checked on youtube.com that day, and most of what this site says held up. Two things did not, and they've been taken off this site and the store listing: a channel block doesn't hide Shorts inside Shorts shelves, and keywords often don't match in Japanese or Chinese titles. Details below. A few others held only in part and were narrowed; see Known limits.</p>
 
         <h2 id="how">How it was checked</h2>
         <ul>
           <li><strong>The real thing.</strong> Shun's extension files, loaded the way they ship, in Chromium on a computer, driven by test scripts, on the real youtube.com.</li>
           <li><strong>Signed out.</strong> The test browser never signs in to YouTube, and its cookie banner is answered with “Reject all”.</li>
           <li><strong>Before and after.</strong> Each check looks at the same page before and after a block, without reloading it, and counts what is shown and hidden. A screenshot and the raw counts are kept for each check.</li>
-          <li><strong>Version.</strong> Shun 1.4.3, the next version going to the Chrome Web Store. Its filtering code is the same as 1.4.2, so everything here applies to 1.4.2 too. To see your version, open <code>chrome://extensions</code>.</li>
+          <li><strong>Version.</strong> Shun 1.4.3, the next version going to the Chrome Web Store. Its filtering code is the same as 1.4.2, so everything here applies to 1.4.2 too. If your version is older than 1.4.2, some results here may differ. To see your version, open <code>chrome://extensions</code>.</li>
           <li><strong>What couldn't be checked live.</strong> Signed out, YouTube shows no Home feed and no Subscriptions feed, and its 3-dot menu has no “Don't recommend channel”. Those parts were checked in Shun's code only, and are marked “Code only” below.</li>
         </ul>
 
@@ -168,7 +168,7 @@
               <tr><th scope="col">What</th><th scope="col">How it was checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Hide Shorts in search</th><td>Switched it off and on, on “minecraft” results</td><td>Works: Shorts shelves 2 to 0, the Shorts in them 34 to 0, the Shorts filter chip hidden</td></tr>
+              <tr><th scope="row">Hide Shorts in search</th><td>Switched it off and on, on “minecraft” results</td><td>Works: Shorts shelves 2 to 0, Shorts cards 34 to 0, the Shorts filter chip hidden</td></tr>
               <tr><th scope="row">Hide Shorts in the sidebar</th><td>YouTube's left menu, small and full</td><td>Works</td></tr>
               <tr><th scope="row">Hide Shorts on Home and in Subscriptions</th><td>Signed out, there's no feed</td><td>Code only</td></tr>
               <tr><th scope="row">A Short from a direct link</th><td>Hide Shorts on, opened a /shorts/ link</td><td>Works: it plays</td></tr>
@@ -190,7 +190,7 @@
           <li><strong>@handle.</strong> Used where YouTube shows it next to a video: search results and playlists. A renamed channel's own page and Up next still match by name only.</li>
           <li><strong>Collabs.</strong> A video credited to several channels isn't always hidden when you block one of them.</li>
           <li><strong>Tech and Sports.</strong> These topics let almost no history or documentary titles through, unlike Gaming, AI Hype and News.</li>
-          <li><strong>“Watch just now”.</strong> Shun asks before playing a video with a blocked word or topic only when that video slips past the filter. In the check, the matching video was always hidden first, so the site no longer lists it as a feature.</li>
+          <li><strong>“Watch just now”.</strong> Shun asks before playing a video with a blocked word or topic only when that video slips past the filter. In the check, the matching video was hidden before it could be clicked, so the site no longer lists it as a feature.</li>
           <li><strong>Shorts previews in search.</strong> With Hide Shorts on, the floating preview YouTube shows when you hover a Shorts result could still appear.</li>
           <li><strong>Computer only.</strong> Shun works on youtube.com in Chrome on a computer. It can't change the YouTube app on phones, tablets or TVs.</li>
         </ul>
@@ -203,7 +203,7 @@
           <li>The plan picker shows the <a href="refund-policy.html">30-day money-back guarantee</a>.</li>
           <li>Blocking works exactly as in 1.4.2.</li>
         </ul>
-        <h3>1.4.2 (November 14, 2026)</h3>
+        <h3>1.4.2 (built November 14, 2026; in Chrome Web Store review)</h3>
         <ul>
           <li>CleanFeed is now called Shun: same extension, same lists. Existing users see a one-time notice, and the quick-add button is now Shun+.</li>
           <li>Keyword and topic blocking check the video title only, not the description.</li>
