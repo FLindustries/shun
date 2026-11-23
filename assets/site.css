@@ -334,6 +334,8 @@ code { font-family: ui-monospace, "Cascadia Mono", Consolas, monospace; font-siz
 .prices .highlight { border-color: var(--mint); }
 .fine { margin-top: var(--space-m); font-size: 0.9rem; color: var(--text-3); max-width: 50rem; }
 .plan-pro .fine { color: var(--on-forest-2); }
+.guarantee { margin-top: var(--space-m); padding: 0.85rem 1rem; border: 1px dashed var(--mint); border-radius: var(--radius-m); font-size: 0.95rem; line-height: 1.5; color: var(--on-forest); max-width: 50rem; }
+.guarantee strong { color: var(--mint); }
 
 /* ── Tables ─────────────────────────────────────────────────────────── */
 .table-wrap { margin-top: var(--space-m); overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-m); background: var(--surface); }

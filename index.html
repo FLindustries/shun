@@ -73,14 +73,14 @@
     "mainEntity": [
       { "@type": "Question", "name": "Is Shun really free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The free plan has unlimited channel blocking, 3 slots shared by keywords and topics, Hide Shorts, Hide comments and every tool except Strict Mode and the Pro extras listed below. Pro is optional: it adds unlimited keywords and topics, your own words inside topics, Strict Mode, a log of the last 100 hidden videos and exceptions for channels you subscribe to." } },
       { "@type": "Question", "name": "Does Shun work on my phone, tablet or TV?", "acceptedAnswer": { "@type": "Answer", "text": "No. Shun is a Chrome extension, so it works on youtube.com in Chrome on a computer. It can't change the YouTube app on phones, tablets, TVs or game consoles." } },
-      { "@type": "Question", "name": "Why doesn't Shun hide anything in my Subscriptions feed?", "acceptedAnswer": { "@type": "Answer", "text": "That's on purpose. You picked those channels, so channel, keyword and topic blocks never apply to the Subscriptions feed. Two things do work there: Hide Shorts, and hiding the \"More relevant\" section that YouTube's algorithm adds to the feed." } },
+      { "@type": "Question", "name": "Why doesn't Shun hide anything in my Subscriptions feed?", "acceptedAnswer": { "@type": "Answer", "text": "That's on purpose. You picked those channels, so channel, keyword and topic blocks never apply to the Subscriptions feed. Two things do work there: Hide Shorts, and hiding the \"Most relevant\" section that YouTube's algorithm adds to the feed." } },
       { "@type": "Question", "name": "Do I need an account to use Shun?", "acceptedAnswer": { "@type": "Answer", "text": "No. There's no Shun account and no sign-up. If you buy Pro, payment runs through ExtensionPay's checkout with Stripe, which asks for an email address for the purchase." } },
       { "@type": "Question", "name": "What does Shun do with my data?", "acceptedAnswer": { "@type": "Answer", "text": "Your blocklists and settings stay in your browser. Shun has no analytics and no tracking, and it doesn't send your lists anywhere. The only outside service it talks to is ExtensionPay, for plan prices and payments." } },
       { "@type": "Question", "name": "Does blocking a channel tell YouTube or the creator?", "acceptedAnswer": { "@type": "Answer", "text": "No. Shun hides videos on your screen. It sends nothing to YouTube and the channel isn't notified. That also means it doesn't train YouTube's recommendations: YouTube may keep suggesting the channel, and Shun keeps hiding it. A video you open from a direct link still plays." } },
-      { "@type": "Question", "name": "How do keywords and topics match video titles?", "acceptedAnswer": { "@type": "Answer", "text": "Keywords match whole words in a video's title, in any language and alphabet: blocking \"game\" hides \"Game night\" but not \"Endgame\". Only the title is checked, not the description. A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own." } },
+      { "@type": "Question", "name": "How do keywords and topics match video titles?", "acceptedAnswer": { "@type": "Answer", "text": "Keywords match whole words in a video's title: blocking \"game\" hides \"Game night\" but not \"Endgame\". Works in any alphabet. A word matches only where it stands apart, so in Japanese or Chinese titles, which don't use spaces, a word often won't match. Only the title is checked, not the description. A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own." } },
       { "@type": "Question", "name": "Can I move my blocklist to another computer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with Export and Import in Shun's Settings. Export saves your blocks and settings to a JSON file, and Import loads that file on the other computer." } },
       { "@type": "Question", "name": "Can I use Shun as a parental control?", "acceptedAnswer": { "@type": "Answer", "text": "Only loosely. Strict Mode (Pro) asks for a password before anyone can unblock channels, remove keywords or turn off Hide Shorts. It can't stop someone with access to Chrome's extension settings from turning Shun off or removing it, so it isn't a full parental-control tool." } },
-      { "@type": "Question", "name": "What happens when YouTube changes its layout?", "acceptedAnswer": { "@type": "Answer", "text": "Something may slip through for a while. Shun works on YouTube's pages, and YouTube changes them often, which can break any extension like it until an update ships. If you spot a problem, use Report a Bug in Shun's Settings or email factuallogic98@gmail.com." } }
+      { "@type": "Question", "name": "What happens when YouTube changes its layout?", "acceptedAnswer": { "@type": "Answer", "text": "Something may slip through for a while. Shun works on YouTube's pages, and YouTube changes them often, which can break any extension like it until an update ships. If you spot a problem, use Report a Bug in Shun's Settings or email factuallogic98@gmail.com. The last-verified page shows when Shun was last checked on youtube.com and what changed in each version." } }
     ]
   }
   </script>
@@ -119,6 +119,7 @@
             <li>No ads, no tracking, no affiliate code.</li>
             <li>If Shun ever changes owner, it will be announced here first.</li>
           </ul>
+          <p class="formerly"><a href="last-verified.html">Checked on the real youtube.com: last verified November 23, 2026</a></p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="https://chromewebstore.google.com/detail/cleanfeed-for-youtube-blo/iikgdocegpniapcigmmgcnacfojmmnnd?utm_source=website&amp;utm_campaign=site">Add to Chrome<span class="visually-hidden">,</span> <span class="btn-note">it's free</span></a>
             <a class="btn btn-ghost" href="#features">See what it does</a>
@@ -163,11 +164,11 @@
           <div class="feature-text">
             <p class="eyebrow">Channels</p>
             <h3>Block a channel from the 3-dot menu</h3>
-            <p>Pick “Block channel permanently” in any video's 3-dot menu, or press “Block this channel” next to Subscribe. Its videos disappear at once.</p>
+            <p>Pick “Block channel permanently” in any video's 3-dot menu, or press “Block this channel” on the video or channel page. Its videos disappear at once.</p>
             <ul class="ticks">
-              <li>Hidden from Home, search, Up next, channel pages, playlists and Shorts shelves</li>
+              <li>Hidden from Home, search, Up next, channel pages and playlists</li>
               <li>In the Shorts player, a blocked channel's Short is hidden and paused, so you don't hear it</li>
-              <li>Also matched by @handle where YouTube shows it, which helps when a channel is renamed</li>
+              <li>In search results and playlists, also matched by @handle, which helps when a channel is renamed</li>
               <li>Unlimited on the free plan</li>
             </ul>
           </div>
@@ -187,9 +188,10 @@
             <p>Type a word or phrase and videos with it in the title are hidden. Or switch on one of 35 ready-made topics, each with its own list of related terms.</p>
             <ul class="ticks">
               <li>Whole words only: “game” hides “Game night” but not “Endgame”</li>
-              <li>Works in any language and alphabet. Only the title is checked, not the description</li>
+              <li>Works in any alphabet. A word matches only where it stands apart, so in Japanese or Chinese titles, which don't use spaces, a word often won't match</li>
+              <li>Only the title is checked, not the description</li>
               <li>Topic word lists cover English and Italian titles. Switch off any term; with Pro, add your own</li>
-              <li>Gaming, Tech, AI Hype, News and Sports let some analysis, history and documentary titles through</li>
+              <li>Gaming, AI Hype and News let some analysis, history and documentary titles through</li>
               <li>3 videos from one channel hidden for the same topic? Shun hides the whole channel. Untag undoes it</li>
               <li>Free: 3 slots shared by keywords and topics. Pro: unlimited</li>
             </ul>
@@ -250,7 +252,7 @@
             <p>Hide Shorts removes them from Home, Subscriptions, search and the sidebar. Hide comments removes the whole comments section under videos.</p>
             <ul class="ticks">
               <li>Both stay off until you switch them on</li>
-              <li>In Subscriptions, Shun hides the “More relevant” section YouTube's algorithm adds, so you see what your channels posted (on by default)</li>
+              <li>In Subscriptions, Shun hides the “Most relevant” section YouTube's algorithm adds, so you see what your channels posted (on by default)</li>
               <li>A Short opened from a direct link still plays</li>
             </ul>
             <p><a href="hide-youtube-shorts.html">How to turn off YouTube Shorts on desktop</a></p>
@@ -273,7 +275,6 @@
           <h2 id="control-title">Look past a filter without undoing it</h2>
         </div>
         <dl class="controls">
-          <div><dt>Watch just now, or Skip</dt><dd>Click a video that matches a blocked word or topic and Shun asks before it plays.</dd></div>
           <div><dt>Show just now</dt><dd>See a blocked channel's videos on one page without unblocking it.</dd></div>
           <div><dt>Pause on this page</dt><dd>A Shun switch in YouTube's top bar turns filtering off for the current page. It's back on when you move to another page.</dd></div>
           <div><dt>Export and Import</dt><dd>Save your blocks and settings to a file, and load them on another computer.</dd></div>
@@ -281,7 +282,7 @@
           <div><dt>Strict Mode <span class="plan-tag">Pro</span></dt><dd>A password is needed before anyone can loosen your filters. It can't stop someone from turning off or removing the extension.</dd></div>
         </dl>
         <div class="callout">
-          <p><strong>By design, blocks never apply to your Subscriptions feed.</strong> You chose those channels, so Shun leaves that feed alone. Hide Shorts and the “More relevant” switch still work there.</p>
+          <p><strong>By design, blocks never apply to your Subscriptions feed.</strong> You chose those channels, so Shun leaves that feed alone. Hide Shorts and the “Most relevant” switch still work there.</p>
         </div>
       </div>
     </section>
@@ -300,9 +301,9 @@
             <ul class="ticks">
               <li>Unlimited channel blocking</li>
               <li>3 slots shared by keywords and topics</li>
-              <li>Hide Shorts, comments and “More relevant”</li>
+              <li>Hide Shorts, comments and “Most relevant”</li>
               <li>3-dot menu items, Block this channel, Shun+ and Scan</li>
-              <li>Watch just now, Show just now and page pause</li>
+              <li>Show just now and page pause</li>
               <li>Export, Import and Stats</li>
             </ul>
           </div>
@@ -321,6 +322,7 @@
               <li class="highlight"><span class="label">Yearly</span><span class="amount">$19.99</span><span class="detail">per year: $1.67 a month, save 44%</span></li>
               <li><span class="label">Monthly</span><span class="amount">$2.99</span><span class="detail">per month</span></li>
             </ul>
+            <p class="guarantee"><strong>30-day money-back guarantee:</strong> if a channel you blocked keeps showing up, or Shun isn't for you, email Shun support within 30 days of paying and get a full refund. No questions asked. <a href="refund-policy.html">Refund policy</a></p>
             <p class="fine">Prices in USD. Upgrade from Shun's popup or Settings. Checkout and payments are handled by ExtensionPay with Stripe; the developer never sees your full card number.</p>
           </div>
         </div>
@@ -336,10 +338,10 @@
               <tr><th scope="row">Keywords and topics, combined</th><td>3</td><td>Unlimited</td></tr>
               <tr><th scope="row">Add your own words to a topic</th><td class="no">No (installs from before v1.4.2 keep it)</td><td>Yes</td></tr>
               <tr><th scope="row">Quick presets (3 topics each)</th><td>When they fit in your 3 slots</td><td>All 5</td></tr>
-              <tr><th scope="row">Hide Shorts, comments and “More relevant”</th><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Hide Shorts, comments and “Most relevant”</th><td>Yes</td><td>Yes</td></tr>
               <tr><th scope="row">Shun+, Scan and “Not interested in this topic”</th><td>Yes</td><td>Yes</td></tr>
               <tr><th scope="row">Auto-tag and discussion-video exceptions</th><td>Yes</td><td>Yes</td></tr>
-              <tr><th scope="row">Watch just now, Show just now, page pause</th><td>Yes</td><td>Yes</td></tr>
+              <tr><th scope="row">Show just now and page pause</th><td>Yes</td><td>Yes</td></tr>
               <tr><th scope="row">Stats, Export and Import</th><td>Yes</td><td>Yes</td></tr>
               <tr><th scope="row">Log of the last 100 hidden videos</th><td class="no">No</td><td>Yes</td></tr>
               <tr><th scope="row">Exceptions for subscribed channels</th><td class="no">No</td><td>Yes</td></tr>
@@ -384,7 +386,7 @@
           </details>
           <details>
             <summary>Why doesn't it hide anything in my Subscriptions feed?</summary>
-            <div class="faq-answer"><p>That's on purpose. You picked those channels, so channel, keyword and topic blocks never apply to the Subscriptions feed. Two things do work there: Hide Shorts, and hiding the “More relevant” section that YouTube's algorithm adds to the feed.</p></div>
+            <div class="faq-answer"><p>That's on purpose. You picked those channels, so channel, keyword and topic blocks never apply to the Subscriptions feed. Two things do work there: Hide Shorts, and hiding the “Most relevant” section that YouTube's algorithm adds to the feed.</p></div>
           </details>
           <details>
             <summary>Do I need an account?</summary>
@@ -400,7 +402,7 @@
           </details>
           <details>
             <summary>How do keywords and topics match video titles?</summary>
-            <div class="faq-answer"><p>Keywords match whole words in a video's title, in any language and alphabet: blocking “game” hides “Game night” but not “Endgame”. Only the title is checked, not the description.</p><p>A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own.</p></div>
+            <div class="faq-answer"><p>Keywords match whole words in a video's title: blocking “game” hides “Game night” but not “Endgame”. Works in any alphabet. A word matches only where it stands apart, so in Japanese or Chinese titles, which don't use spaces, a word often won't match. Only the title is checked, not the description.</p><p>A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own.</p></div>
           </details>
           <details>
             <summary>Can I move my blocklist to another computer?</summary>
@@ -412,7 +414,7 @@
           </details>
           <details>
             <summary>What happens when YouTube changes its layout?</summary>
-            <div class="faq-answer"><p>Something may slip through for a while. Shun works on YouTube's pages, and YouTube changes them often, which can break any extension like it until an update ships. If you spot a problem, use Report a Bug in Shun's Settings or email <a href="mailto:factuallogic98@gmail.com">Shun support (factuallogic98@gmail.com)</a>.</p></div>
+            <div class="faq-answer"><p>Something may slip through for a while. Shun works on YouTube's pages, and YouTube changes them often, which can break any extension like it until an update ships. If you spot a problem, use Report a Bug in Shun's Settings or email <a href="mailto:factuallogic98@gmail.com">Shun support (factuallogic98@gmail.com)</a>.</p><p><a href="last-verified.html">When Shun was last checked on YouTube</a>, what was checked, and what changed in each version.</p></div>
           </details>
         </div>
       </div>
@@ -455,6 +457,8 @@
           <ul>
             <li><a href="https://chromewebstore.google.com/detail/cleanfeed-for-youtube-blo/iikgdocegpniapcigmmgcnacfojmmnnd?utm_source=website&amp;utm_campaign=site">Chrome Web Store</a></li>
             <li><a href="./#pricing">Pricing</a></li>
+            <li><a href="last-verified.html">Last verified with YouTube</a></li>
+            <li><a href="refund-policy.html">Refund policy</a></li>
             <li><a href="privacy-policy.html">Privacy policy</a></li>
             <li><a href="mailto:factuallogic98@gmail.com">Shun support (factuallogic98@gmail.com)</a></li>
           </ul>
