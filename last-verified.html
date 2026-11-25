@@ -117,69 +117,69 @@
 
         <h2 id="channels">Channel blocking</h2>
         <div class="table-wrap" role="region" aria-labelledby="channels-caption" tabindex="0">
-          <table>
+          <table class="stack">
             <caption id="channels-caption" class="visually-hidden">Channel blocking checks on November 23, 2026</caption>
             <thead>
               <tr><th scope="col">What</th><th scope="col">How it was checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Search results</th><td>Blocked Marques Brownlee (@mkbhd), searched “mkbhd”</td><td>Works: 8 of 8 videos and the channel card hidden</td></tr>
-              <tr><th scope="row">Up next</th><td>Blocked a channel from a video's sidebar</td><td>Works: 2 of 2 hidden</td></tr>
-              <tr><th scope="row">Channel page</th><td>Opened /@mkbhd with the channel blocked</td><td>Works: “This channel is blocked by Shun”, with Show just now</td></tr>
-              <tr><th scope="row">Playlists</th><td>A playlist page, the playlist panel on a video page, playlist search results</td><td>Works: 5 of 5, 5 of 5 and 2 of 2 hidden</td></tr>
-              <tr><th scope="row">Shorts player</th><td>Opened one of the channel's Shorts</td><td>Works: hidden and paused</td></tr>
-              <tr><th scope="row">“Block channel permanently” in the 3-dot menu</th><td>Clicked it on a Veritasium video in search</td><td>Works: 16 of 16 of the channel's videos hidden within a fraction of a second</td></tr>
-              <tr><th scope="row">Open tabs update</th><td>Every check above</td><td>Works: no reload needed</td></tr>
-              <tr><th scope="row">“Block this channel” button</th><td>Video page and channel page</td><td>Works: next to Subscribe on video pages; at the end of the tab row on channel pages</td></tr>
-              <tr><th scope="row">Renamed channel, by @handle</th><td>Stored an old name plus @mkbhd</td><td>Partly: matched in search results, playlists and, since 1.4.4, on the channel's own page (checked: stored an old name plus @mkbhd, opened /@mkbhd, the blocked banner showed); not in Up next, where YouTube shows no handle</td></tr>
-              <tr><th scope="row">Shorts shelves</th><td>The Shorts shelf in “mkbhd” results</td><td>Works since 1.4.4, in search results: with MKBHD blocked, its Short in the shelf was hidden and the other 16 Shorts stayed; nothing is looked up while no channel is blocked. Home and sidebar shelves don't show signed out: Code only. A Short whose owner YouTube won't give out (embedding off) stays visible</td></tr>
-              <tr><th scope="row">Collabs</th><td>A video credited to “KSI and MrBeast” (search results)</td><td>Works since 1.4.4: hidden when either channel was blocked; the 3-dot menu offers one Block item per channel, never the combined name. A channel behind “and 2 more” isn't named on the card, so it isn't matched</td></tr>
-              <tr><th scope="row">Import from another blocker</th><td>Options page: BlockTube and Channel Blocker exports and a pasted list; then a search for “mkbhd”</td><td>Works: channels and words added, regex rules and unusable entries reported as skipped; an imported @mkbhd hid its search results</td></tr>
-              <tr><th scope="row">Home</th><td>Signed out, Home has no feed</td><td>Code only</td></tr>
+              <tr><th scope="row">Search results</th><td data-label="How it was checked">Blocked Marques Brownlee (@mkbhd), searched “mkbhd”</td><td data-label="Result">Works: 8 of 8 videos and the channel card hidden</td></tr>
+              <tr><th scope="row">Up next</th><td data-label="How it was checked">Blocked a channel from a video's sidebar</td><td data-label="Result">Works: 2 of 2 hidden</td></tr>
+              <tr><th scope="row">Channel page</th><td data-label="How it was checked">Opened /@mkbhd with the channel blocked</td><td data-label="Result">Works: “This channel is blocked by Shun”, with Show just now</td></tr>
+              <tr><th scope="row">Playlists</th><td data-label="How it was checked">A playlist page, the playlist panel on a video page, playlist search results</td><td data-label="Result">Works: 5 of 5, 5 of 5 and 2 of 2 hidden</td></tr>
+              <tr><th scope="row">Shorts player</th><td data-label="How it was checked">Opened one of the channel's Shorts</td><td data-label="Result">Works: hidden and paused</td></tr>
+              <tr><th scope="row">“Block channel permanently” in the 3-dot menu</th><td data-label="How it was checked">Clicked it on a Veritasium video in search</td><td data-label="Result">Works: 16 of 16 of the channel's videos hidden within a fraction of a second</td></tr>
+              <tr><th scope="row">Open tabs update</th><td data-label="How it was checked">Every check above</td><td data-label="Result">Works: no reload needed</td></tr>
+              <tr><th scope="row">“Block this channel” button</th><td data-label="How it was checked">Video page and channel page</td><td data-label="Result">Works: next to Subscribe on video pages; at the end of the tab row on channel pages</td></tr>
+              <tr><th scope="row">Renamed channel, by @handle</th><td data-label="How it was checked">Stored an old name plus @mkbhd</td><td data-label="Result">Partly: matched in search results, playlists and, since 1.4.4, on the channel's own page (checked: stored an old name plus @mkbhd, opened /@mkbhd, the blocked banner showed); not in Up next, where YouTube shows no handle</td></tr>
+              <tr><th scope="row">Shorts shelves</th><td data-label="How it was checked">The Shorts shelf in “mkbhd” results</td><td data-label="Result">Works since 1.4.4, in search results: with MKBHD blocked, its Short in the shelf was hidden and the other 16 Shorts stayed; nothing is looked up while no channel is blocked. Home and sidebar shelves don't show signed out: Code only. A Short whose owner YouTube won't give out (embedding off) stays visible</td></tr>
+              <tr><th scope="row">Collabs</th><td data-label="How it was checked">A video credited to “KSI and MrBeast” (search results)</td><td data-label="Result">Works since 1.4.4: hidden when either channel was blocked; the 3-dot menu offers one Block item per channel, never the combined name. A channel behind “and 2 more” isn't named on the card, so it isn't matched</td></tr>
+              <tr><th scope="row">Import from another blocker</th><td data-label="How it was checked">Options page: BlockTube and Channel Blocker exports and a pasted list; then a search for “mkbhd”</td><td data-label="Result">Works: channels and words added, regex rules and unusable entries reported as skipped; an imported @mkbhd hid its search results</td></tr>
+              <tr><th scope="row">Home</th><td data-label="How it was checked">Signed out, Home has no feed</td><td data-label="Result">Code only</td></tr>
             </tbody>
           </table>
         </div>
 
         <h2 id="words">Keywords and topics</h2>
         <div class="table-wrap" role="region" aria-labelledby="words-caption" tabindex="0">
-          <table>
+          <table class="stack">
             <caption id="words-caption" class="visually-hidden">Keyword and topic checks on November 23, 2026</caption>
             <thead>
               <tr><th scope="col">What</th><th scope="col">How it was checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Whole words only</th><td>Blocked “game” on results for “avengers endgame game”</td><td>Works: 4 of 4 titles with the word “game” hidden; 27 titles with only “Endgame” or “Games” kept</td></tr>
-              <tr><th scope="row">Accents</th><td>Blocked “città”, then “citta”</td><td>Works: accents count, so “citta” doesn't hide “città”</td></tr>
-              <tr><th scope="row">Title only</th><td>A topic term that appears only in a video's description</td><td>Works: the video stays</td></tr>
-              <tr><th scope="row">Topics</th><td>Crypto on results for “bitcoin price prediction”</td><td>Works: 55 of 55 matching titles hidden</td></tr>
-              <tr><th scope="row">Switching off a topic term</th><td>Gaming on, “minecraft” switched off</td><td>Works: Minecraft titles stay</td></tr>
-              <tr><th scope="row">Discussion and history titles</th><td>Topics on, searches for history and documentary videos</td><td>Partly: Gaming let 9 titles through, AI Hype 3 and News 4; Tech and Sports let none through</td></tr>
-              <tr><th scope="row">Auto-tag and Untag</th><td>Gaming on, a gaming channel's search results</td><td>Works: the channel was tagged after 3 hidden videos; Untag brought it back and it wasn't tagged again</td></tr>
-              <tr><th scope="row">Other alphabets</th><td>Japanese searches, plus checks of the matching code for Chinese and Korean</td><td>Partly: Latin and Cyrillic work. At the time of that check, “ゲーム” matched 1 of 20 Japanese titles containing it. Since v1.4.4 Japanese, Chinese and Korean words match anywhere inside a title; unit tests cover this, and it has not been re-checked on live YouTube</td></tr>
-              <tr><th scope="row">Shun+ and Scan</th><td>Hovered a video; ran Scan on a channel page</td><td>Works: Scan suggested 40 words and phrases from 60 titles</td></tr>
+              <tr><th scope="row">Whole words only</th><td data-label="How it was checked">Blocked “game” on results for “avengers endgame game”</td><td data-label="Result">Works: 4 of 4 titles with the word “game” hidden; 27 titles with only “Endgame” or “Games” kept</td></tr>
+              <tr><th scope="row">Accents</th><td data-label="How it was checked">Blocked “città”, then “citta”</td><td data-label="Result">Works: accents count, so “citta” doesn't hide “città”</td></tr>
+              <tr><th scope="row">Title only</th><td data-label="How it was checked">A topic term that appears only in a video's description</td><td data-label="Result">Works: the video stays</td></tr>
+              <tr><th scope="row">Topics</th><td data-label="How it was checked">Crypto on results for “bitcoin price prediction”</td><td data-label="Result">Works: 55 of 55 matching titles hidden</td></tr>
+              <tr><th scope="row">Switching off a topic term</th><td data-label="How it was checked">Gaming on, “minecraft” switched off</td><td data-label="Result">Works: Minecraft titles stay</td></tr>
+              <tr><th scope="row">Discussion and history titles</th><td data-label="How it was checked">Topics on, searches for history and documentary videos</td><td data-label="Result">Partly: Gaming let 9 titles through, AI Hype 3 and News 4; Tech and Sports let none through</td></tr>
+              <tr><th scope="row">Auto-tag and Untag</th><td data-label="How it was checked">Gaming on, a gaming channel's search results</td><td data-label="Result">Works: the channel was tagged after 3 hidden videos; Untag brought it back and it wasn't tagged again</td></tr>
+              <tr><th scope="row">Other alphabets</th><td data-label="How it was checked">Japanese searches, plus checks of the matching code for Chinese and Korean</td><td data-label="Result">Partly: Latin and Cyrillic work. At the time of that check, “ゲーム” matched 1 of 20 Japanese titles containing it. Since v1.4.4 Japanese, Chinese and Korean words match anywhere inside a title; unit tests cover this, and it has not been re-checked on live YouTube</td></tr>
+              <tr><th scope="row">Shun+ and Scan</th><td data-label="How it was checked">Hovered a video; ran Scan on a channel page</td><td data-label="Result">Works: Scan suggested 40 words and phrases from 60 titles</td></tr>
             </tbody>
           </table>
         </div>
 
         <h2 id="extras">Shorts, comments and tools</h2>
         <div class="table-wrap" role="region" aria-labelledby="extras-caption" tabindex="0">
-          <table>
+          <table class="stack">
             <caption id="extras-caption" class="visually-hidden">Checks of Hide Shorts, Hide comments and the tools on November 23, 2026</caption>
             <thead>
               <tr><th scope="col">What</th><th scope="col">How it was checked</th><th scope="col">Result</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">Hide Shorts in search</th><td>Switched it off and on, on “minecraft” results</td><td>Works: Shorts shelves 2 to 0, Shorts cards 34 to 0, the Shorts filter chip hidden</td></tr>
-              <tr><th scope="row">Hide Shorts in the sidebar</th><td>YouTube's left menu, small and full</td><td>Works</td></tr>
-              <tr><th scope="row">Hide Shorts on Home and in Subscriptions</th><td>Signed out, there's no feed</td><td>Code only</td></tr>
-              <tr><th scope="row">A Short from a direct link</th><td>Hide Shorts on, opened a /shorts/ link</td><td>Works: it plays</td></tr>
-              <tr><th scope="row">Hide comments</th><td>A video with 40 comment threads</td><td>Works</td></tr>
-              <tr><th scope="row">“Most relevant” in Subscriptions</th><td>Signed out, there's no feed</td><td>Code only</td></tr>
-              <tr><th scope="row">Show just now</th><td>On a blocked channel's page</td><td>Works: 53 videos shown, the channel stays blocked</td></tr>
-              <tr><th scope="row">Pause on this page</th><td>The Shun switch in YouTube's top bar</td><td>Works: nothing hidden while paused; back on at the next page</td></tr>
-              <tr><th scope="row">Strict Mode (Pro)</th><td>Adding and removing blocks with it on</td><td>Works: adding needs no password, loosening does; Free can't turn it on</td></tr>
-              <tr><th scope="row">Free plan limits</th><td>40 channels and 4 keywords added on Free</td><td>Works: all 40 channels kept; the 4th keyword or topic refused</td></tr>
-              <tr><th scope="row">Prices in the plan picker</th><td>Compared with ExtensionPay</td><td>Works: the same prices</td></tr>
+              <tr><th scope="row">Hide Shorts in search</th><td data-label="How it was checked">Switched it off and on, on “minecraft” results</td><td data-label="Result">Works: Shorts shelves 2 to 0, Shorts cards 34 to 0, the Shorts filter chip hidden</td></tr>
+              <tr><th scope="row">Hide Shorts in the sidebar</th><td data-label="How it was checked">YouTube's left menu, small and full</td><td data-label="Result">Works</td></tr>
+              <tr><th scope="row">Hide Shorts on Home and in Subscriptions</th><td data-label="How it was checked">Signed out, there's no feed</td><td data-label="Result">Code only</td></tr>
+              <tr><th scope="row">A Short from a direct link</th><td data-label="How it was checked">Hide Shorts on, opened a /shorts/ link</td><td data-label="Result">Works: it plays</td></tr>
+              <tr><th scope="row">Hide comments</th><td data-label="How it was checked">A video with 40 comment threads</td><td data-label="Result">Works</td></tr>
+              <tr><th scope="row">“Most relevant” in Subscriptions</th><td data-label="How it was checked">Signed out, there's no feed</td><td data-label="Result">Code only</td></tr>
+              <tr><th scope="row">Show just now</th><td data-label="How it was checked">On a blocked channel's page</td><td data-label="Result">Works: 53 videos shown, the channel stays blocked</td></tr>
+              <tr><th scope="row">Pause on this page</th><td data-label="How it was checked">The Shun switch in YouTube's top bar</td><td data-label="Result">Works: nothing hidden while paused; back on at the next page</td></tr>
+              <tr><th scope="row">Strict Mode (Pro)</th><td data-label="How it was checked">Adding and removing blocks with it on</td><td data-label="Result">Works: adding needs no password, loosening does; Free can't turn it on</td></tr>
+              <tr><th scope="row">Free plan limits</th><td data-label="How it was checked">40 channels and 4 keywords added on Free</td><td data-label="Result">Works: all 40 channels kept; the 4th keyword or topic refused</td></tr>
+              <tr><th scope="row">Prices in the plan picker</th><td data-label="How it was checked">Compared with ExtensionPay</td><td data-label="Result">Works: the same prices</td></tr>
             </tbody>
           </table>
         </div>
@@ -198,6 +198,17 @@
         <p>See something here that's no longer true? Use Report a Bug in Shun's Settings or email <a href="mailto:factuallogic98@gmail.com">Shun support (factuallogic98@gmail.com)</a>.</p>
 
         <h2 id="changelog">Recent versions</h2>
+        <h3>1.4.6 (November 25, 2026)</h3>
+        <ul>
+          <li>Shun's buttons, menu items and messages inside YouTube now follow YouTube's own look in light and dark theme.</li>
+          <li>Popup and Settings: switches work with the keyboard and screen readers, focus is visible, and text is easier to read in dark mode.</li>
+          <li>No change to what gets blocked.</li>
+        </ul>
+        <h3>1.4.5 (November 25, 2026)</h3>
+        <ul>
+          <li>Pasted lists can use site-relative links (<code>/@name</code>, <code>/channel/UC…</code>), as some shared blocklists write them.</li>
+          <li>On Microsoft Edge, the rating prompt opens the Edge Add-ons listing.</li>
+        </ul>
         <h3>1.4.4 (Chrome Web Store, November 24, 2026)</h3>
         <ul>
           <li>Blocking a channel now also hides its Shorts inside Shorts shelves in search results.</li>
