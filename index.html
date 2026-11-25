@@ -38,7 +38,7 @@
     "applicationCategory": "BrowserApplication",
     "applicationSubCategory": "Browser extension",
     "operatingSystem": "Google Chrome (desktop)",
-    "softwareVersion": "1.4.0",
+    "softwareVersion": "1.4.4",
     "url": "https://flindustries.github.io/shun/",
     "installUrl": "https://chromewebstore.google.com/detail/cleanfeed-for-youtube-blo/iikgdocegpniapcigmmgcnacfojmmnnd?utm_source=website&utm_campaign=site",
     "image": "https://flindustries.github.io/shun/assets/og.png",
@@ -76,8 +76,8 @@
       { "@type": "Question", "name": "Why doesn't Shun hide anything in my Subscriptions feed?", "acceptedAnswer": { "@type": "Answer", "text": "That's on purpose. You picked those channels, so channel, keyword and topic blocks never apply to the Subscriptions feed. Two things do work there: Hide Shorts, and hiding the \"Most relevant\" section that YouTube's algorithm adds to the feed." } },
       { "@type": "Question", "name": "Do I need an account to use Shun?", "acceptedAnswer": { "@type": "Answer", "text": "No. There's no Shun account and no sign-up. If you buy Pro, payment runs through ExtensionPay's checkout with Stripe, which asks for an email address for the purchase." } },
       { "@type": "Question", "name": "What does Shun do with my data?", "acceptedAnswer": { "@type": "Answer", "text": "Your blocklists and settings stay in your browser. Shun has no analytics and no tracking, and it doesn't send your lists anywhere. The only outside service it talks to is ExtensionPay, for plan prices and payments." } },
-      { "@type": "Question", "name": "Does blocking a channel tell YouTube or the creator?", "acceptedAnswer": { "@type": "Answer", "text": "No. Shun hides videos on your screen. It sends nothing to YouTube and the channel isn't notified. That also means it doesn't train YouTube's recommendations: YouTube may keep suggesting the channel, and Shun keeps hiding it. A video you open from a direct link still plays." } },
-      { "@type": "Question", "name": "How do keywords and topics match video titles?", "acceptedAnswer": { "@type": "Answer", "text": "Keywords match whole words in a video's title: blocking \"game\" hides \"Game night\" but not \"Endgame\". Works in any alphabet. A word matches only where it stands apart, so in Japanese or Chinese titles, which don't use spaces, a word often won't match. Only the title is checked, not the description. A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own." } },
+      { "@type": "Question", "name": "Does blocking a channel tell YouTube or the creator?", "acceptedAnswer": { "@type": "Answer", "text": "No. Shun hides videos on your screen. It doesn't tell YouTube what you block, and the channel isn't notified. That also means it doesn't train YouTube's recommendations: YouTube may keep suggesting the channel, and Shun keeps hiding it. A video you open from a direct link still plays." } },
+      { "@type": "Question", "name": "How do keywords and topics match video titles?", "acceptedAnswer": { "@type": "Answer", "text": "Keywords match whole words in a video's title: blocking \"game\" hides \"Game night\" but not \"Endgame\". In Japanese, Chinese and Korean, a word matches anywhere inside a title, since those titles don't put spaces between words. Other alphabets, such as Latin and Cyrillic, match whole words only. Only the title is checked, not the description. A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own." } },
       { "@type": "Question", "name": "Can I move my blocklist to another computer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with Export and Import in Shun's Settings. Export saves your blocks and settings to a JSON file, and Import loads that file on the other computer." } },
       { "@type": "Question", "name": "Can I use Shun as a parental control?", "acceptedAnswer": { "@type": "Answer", "text": "Only loosely. Strict Mode (Pro) asks for a password before anyone can unblock channels, remove keywords or turn off Hide Shorts. It can't stop someone with access to Chrome's extension settings from turning Shun off or removing it, so it isn't a full parental-control tool." } },
       { "@type": "Question", "name": "What happens when YouTube changes its layout?", "acceptedAnswer": { "@type": "Answer", "text": "Something may slip through for a while. Shun works on YouTube's pages, and YouTube changes them often, which can break any extension like it until an update ships. If you spot a problem, use Report a Bug in Shun's Settings or email factuallogic98@gmail.com. The last-verified page shows when Shun was last checked on youtube.com and what changed in each version." } }
@@ -168,8 +168,11 @@
             <ul class="ticks">
               <li>Hidden from Home, search, Up next, channel pages and playlists</li>
               <li>In the Shorts player, a blocked channel's Short is hidden and paused, so you don't hear it</li>
-              <li>In search results and playlists, also matched by @handle, which helps when a channel is renamed</li>
+              <li>In search results, a blocked channel's Shorts are hidden in Shorts shelves too</li>
+              <li>Also matched by @handle in search results, playlists and on the channel's own page, which helps when a channel is renamed</li>
+              <li>A video credited to several channels is hidden when you block any channel named on it</li>
               <li>Unlimited on the free plan</li>
+              <li>Switching from another blocker? Import your list in one click (BlockTube, Channel Blocker, or a pasted list).</li>
             </ul>
           </div>
           <figure class="shot">
@@ -188,7 +191,7 @@
             <p>Type a word or phrase and videos with it in the title are hidden. Or switch on one of 35 ready-made topics, each with its own list of related terms.</p>
             <ul class="ticks">
               <li>Whole words only: “game” hides “Game night” but not “Endgame”</li>
-              <li>Works in any alphabet. A word matches only where it stands apart, so in Japanese or Chinese titles, which don't use spaces, a word often won't match</li>
+              <li>In Japanese, Chinese and Korean, a word matches anywhere inside a title, since those titles don't put spaces between words. Other alphabets, such as Latin and Cyrillic, match whole words only</li>
               <li>Only the title is checked, not the description</li>
               <li>Topic word lists cover English and Italian titles. Switch off any term; with Pro, add your own</li>
               <li>Gaming, AI Hype and News let some analysis, history and documentary titles through</li>
@@ -362,7 +365,7 @@
         </div>
         <dl class="privacy-list">
           <div><dt>No account</dt><dd>Install it and start blocking. There's nothing to sign up for.</dd></div>
-          <div><dt>No tracking</dt><dd>No analytics and no tracking scripts. Shun doesn't send your blocklists, settings or viewing anywhere.</dd></div>
+          <div><dt>No tracking</dt><dd>No analytics and no tracking scripts. Shun doesn't send your blocklists, settings or viewing anywhere. When you import a list from another blocker, it asks YouTube only for the names of channels the list gives as an ID or an old link.</dd></div>
           <div><dt>One outside service</dt><dd>Shun's scripts run on youtube.com. The only other site it talks to is extensionpay.com, for Pro prices and payments.</dd></div>
         </dl>
       </div>
@@ -398,11 +401,11 @@
           </details>
           <details>
             <summary>Does blocking a channel tell YouTube or the creator?</summary>
-            <div class="faq-answer"><p>No. Shun hides videos on your screen. It sends nothing to YouTube and the channel isn't notified.</p><p>That also means it doesn't train YouTube's recommendations: YouTube may keep suggesting the channel, and Shun keeps hiding it. A video you open from a direct link still plays.</p></div>
+            <div class="faq-answer"><p>No. Shun hides videos on your screen. It doesn't tell YouTube what you block, and the channel isn't notified. (Shun does ask YouTube which channel posted some Shorts; the <a href="privacy-policy.html#requests-to-youtube">privacy policy</a> explains what that request carries.)</p><p>That also means it doesn't train YouTube's recommendations: YouTube may keep suggesting the channel, and Shun keeps hiding it. A video you open from a direct link still plays.</p></div>
           </details>
           <details>
             <summary>How do keywords and topics match video titles?</summary>
-            <div class="faq-answer"><p>Keywords match whole words in a video's title: blocking “game” hides “Game night” but not “Endgame”. Works in any alphabet. A word matches only where it stands apart, so in Japanese or Chinese titles, which don't use spaces, a word often won't match. Only the title is checked, not the description.</p><p>A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own.</p></div>
+            <div class="faq-answer"><p>Keywords match whole words in a video's title: blocking “game” hides “Game night” but not “Endgame”. In Japanese, Chinese and Korean, a word matches anywhere inside a title, since those titles don't put spaces between words. Other alphabets, such as Latin and Cyrillic, match whole words only. Only the title is checked, not the description.</p><p>A topic is a ready-made word list: turn on Crypto and titles with words like bitcoin or blockchain go too. Topic lists cover English and Italian words, and you can switch off any term; with Pro, add your own.</p></div>
           </details>
           <details>
             <summary>Can I move my blocklist to another computer?</summary>

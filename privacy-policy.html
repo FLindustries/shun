@@ -55,6 +55,7 @@
           <li><a href="#what-cleanfeed-does">What Shun Does</a></li>
           <li><a href="#data-we-collect">Data We Collect</a></li>
           <li><a href="#data-stored-on-your-device">Data Stored on Your Device</a></li>
+          <li><a href="#requests-to-youtube">Requests to YouTube</a></li>
           <li><a href="#plans-and-payments">Plans and Payments</a></li>
           <li><a href="#permissions-explained">Permissions Explained</a></li>
           <li><a href="#third-party-services">Third-Party Services</a></li>
@@ -68,7 +69,7 @@
 
       <article class="article policy">
         <div class="callout policy-summary">
-          <strong>In short:</strong> There is no Shun account, no analytics, and no ads. Your block lists, keywords, and settings stay on your device. Shun contacts one outside service, ExtensionPay (extensionpay.com), for plans and payments.
+          <strong>In short:</strong> There is no Shun account, no analytics, and no ads. Your block lists, keywords, and settings stay on your device. Shun contacts one outside service, ExtensionPay (extensionpay.com), for plans and payments. While you block a channel, Shun may also ask YouTube itself which channel posted a Short that YouTube shows without its channel name, and when you import a list from another blocker, Shun may ask YouTube for the names of the channels that list gives only as an ID or an old link.
         </div>
 
         <h2 id="what-cleanfeed-does">What Shun Does</h2>
@@ -81,8 +82,9 @@
           <li>Keep a log of the videos Shun hid, so you can see what was hidden</li>
           <li>Lock your settings with a password (Strict Mode)</li>
           <li>Export your settings to a file and import them again</li>
+          <li>Import a list of channels and keywords from another blocker (BlockTube, Channel Blocker) or a pasted list</li>
         </ul>
-        <p>Some of these features need a paid Pro plan. To do its job, Shun reads video titles and channel names on YouTube pages inside your browser. That reading happens on your device and the text is not sent anywhere.</p>
+        <p>Some of these features need a paid Pro plan. To do its job, Shun reads video titles and channel names on YouTube pages inside your browser. That reading happens on your device and the text is not sent anywhere. The exceptions are described under "Requests to YouTube": Shun can send YouTube the id of a Short shown on the page, and, when you import a list, the channel IDs or old channel links in it.</p>
 
         <h2 id="data-we-collect">Data We Collect</h2>
         <p><strong>From the extension: none.</strong> The developer of Shun does not collect or receive your browsing history, usage analytics, or the lists and settings you create in Shun.</p>
@@ -91,7 +93,7 @@
         <h2 id="data-stored-on-your-device">Data Stored on Your Device</h2>
         <p>Shun stores your preferences using Chrome's local storage API (<code>chrome.storage.local</code>). This includes:</p>
         <ul>
-          <li>Blocked channel names and handles</li>
+          <li>Blocked channel names, handles and channel IDs</li>
           <li>Blocked keywords and topics</li>
           <li>Channels Shun tagged for a blocked topic, the videos it counted for that, and channels you untagged</li>
           <li>Topic terms you added or switched off</li>
@@ -101,12 +103,30 @@
           <li>A log of recently hidden videos (up to 100 entries)</li>
           <li>Basic usage counters (channels blocked, videos hidden)</li>
           <li>A saved copy of your Free or Pro status and of the plan names and prices, so Shun does not have to ask ExtensionPay every time</li>
+          <li>For Shorts whose channel Shun asked YouTube for: the video id, the channel name and handle YouTube answered, and when (up to about 2,000 Shorts, the oldest removed first), so Shun does not have to ask again</li>
           <li>Data saved by earlier versions of Shun that this version no longer uses. It stays on your device.</li>
         </ul>
         <p>This data stays in your browser. Shun does not send it to any server, not even ours. If you use Export, Shun saves a file to your computer, and what happens to that file is up to you.</p>
 
+        <h2 id="requests-to-youtube">Requests to YouTube</h2>
+        <p>In a Shorts shelf (in search results, on the Home page or next to a video), YouTube shows each Short with its title but without its channel name. So that a channel you blocked is hidden there too, Shun asks YouTube which channel posted such a Short:</p>
+        <ul>
+          <li><strong>Where:</strong> YouTube's public oEmbed address on youtube.com (<code>https://www.youtube.com/oembed</code>), the site you are already on. The request goes to youtube.com only and is not sent anywhere else.</li>
+          <li><strong>What it carries:</strong> only the Short's video id, which YouTube itself showed on the page. It carries none of your Shun lists or settings, and Shun sends it without your YouTube cookies and without the address of the page you are on.</li>
+          <li><strong>When:</strong> only while you have at least one blocked channel, only for Shorts shown without a channel name, and never on a channel's own page. Shun keeps the answer and does not ask about the same Short again for about a month (about an hour if YouTube did not answer).</li>
+          <li><strong>What YouTube answers:</strong> the channel name and handle. Shun saves them on your device (see "Data Stored on Your Device").</li>
+          <li>Like any request to youtube.com, YouTube can see your IP address.</li>
+        </ul>
+        <p>When you import a list in Settings (Blocked, "Import from another blocker"), a channel the file or the pasted list gives only as a channel ID (<code>UC...</code>) or as an old <code>/c/</code> or <code>/user/</code> link has no name Shun could block by. For each such channel, Shun asks YouTube for its name:</p>
+        <ul>
+          <li><strong>Where:</strong> the channel's public feed on youtube.com (<code>https://www.youtube.com/feeds/videos.xml</code>) for a channel ID or a <code>/user/</code> link, or the channel's page (<code>https://www.youtube.com/c/...</code>) for a <code>/c/</code> link. The requests go to youtube.com only (YouTube may pass a request through its own consent page on consent.youtube.com) and are not sent anywhere else.</li>
+          <li><strong>What it carries:</strong> only that channel ID or link name, from the list you chose to import. Shun sends it without your YouTube cookies and without a referrer. Channels you already block, names and @handles are never looked up.</li>
+          <li><strong>When:</strong> only while an import you started is running, at most 3 requests at a time.</li>
+          <li><strong>What YouTube answers:</strong> the channel's name (and, from a channel page, its handle). Shun saves them as the blocked channel, on your device.</li>
+        </ul>
+
         <h2 id="plans-and-payments">Plans and Payments</h2>
-        <p>Shun is free to use, with an optional Pro upgrade handled by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a>, which uses Stripe for payment processing. It is the one network service Shun contacts. Here is when that happens:</p>
+        <p>Shun is free to use, with an optional Pro upgrade handled by <a href="https://extensionpay.com" target="_blank" rel="noopener">ExtensionPay</a>, which uses Stripe for payment processing. It is the one outside service Shun contacts. Here is when that happens:</p>
         <ul>
           <li><strong>Showing plans:</strong> Shun asks extensionpay.com for the current plan names and prices. This request carries none of your Shun data.</li>
           <li><strong>Choosing a plan:</strong> Shun asks ExtensionPay for a random key that identifies your install and opens ExtensionPay's checkout page in a new tab. From then on, Shun checks your paid or free status with extensionpay.com using that key.</li>
@@ -123,7 +143,7 @@
           <li><strong>storage</strong> — Save your settings and block lists on your device, and the ExtensionPay items described above</li>
           <li><strong>alarms</strong> — Only to remove the daily alarm that versions before 1.4.0 created. Shun 1.4 creates no alarms.</li>
           <li><strong>scripting</strong> — Right after Shun is installed or updated, add its YouTube script and style sheet to the YouTube tabs that are already open, so they are filtered without a reload. Used only on youtube.com tabs.</li>
-          <li><strong>Host access (youtube.com)</strong> — Read and modify YouTube pages to block channels, filter content, and hide Shorts</li>
+          <li><strong>Host access (youtube.com)</strong> — Read and modify YouTube pages to block channels, filter content, and hide Shorts, ask YouTube which channel posted a Short, and look up channel names during an import (see "Requests to YouTube")</li>
           <li><strong>Script on extensionpay.com</strong> — A small script runs on extensionpay.com pages only, so ExtensionPay's checkout page can tell Shun when a payment is done</li>
         </ul>
 
@@ -131,7 +151,7 @@
         <p>Shun does not use any analytics, tracking, or advertising services. The third-party services involved are ExtensionPay and Stripe, for optional payments, as described above.</p>
 
         <h2 id="data-sharing">Data Sharing</h2>
-        <p>We do not sell your data, and we do not share it with anyone. The one outside contact is with ExtensionPay, described under "Plans and Payments".</p>
+        <p>We do not sell your data, and we do not share it with anyone. The one outside contact is with ExtensionPay, described under "Plans and Payments". The requests to YouTube described under "Requests to YouTube" go to youtube.com only.</p>
 
         <h2 id="deleting-your-data">Deleting Your Data</h2>
         <p>Uninstalling Shun removes the data it saved in this browser. Copies kept by Chrome sync follow Chrome's own sync rules. Payment records held by ExtensionPay and Stripe follow their own policies. If you have questions about them, email us at the address below.</p>

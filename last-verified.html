@@ -86,7 +86,7 @@
         </nav>
         <h1>Does Shun still work with YouTube?</h1>
         <p class="page-lede">YouTube changes its pages often, and an extension like Shun can break when it does. This page says when Shun was last checked on the real youtube.com, how, what worked, what didn't, and what changed in recent versions.</p>
-        <p class="page-meta">Last verified: November 23, 2026, with Shun 1.4.3. Written by the developer of Shun.</p>
+        <p class="page-meta">Last verified: November 23, 2026, with Shun 1.4.4. Written by the developer of Shun.</p>
       </div>
     </div>
 
@@ -104,14 +104,14 @@
       </nav>
 
       <article class="article">
-        <p class="answer"><strong>Short answer</strong>Yes, as of November 23, 2026. Channel, keyword and topic blocking, Hide Shorts, Hide comments and the tools inside YouTube were checked on youtube.com that day, and most of what this site says held up. Two things did not, and they've been taken off this site and the store listing: a channel block doesn't hide Shorts inside Shorts shelves, and keywords often don't match in Japanese or Chinese titles. Details below. A few others held only in part and were narrowed; see Known limits.</p>
+        <p class="answer"><strong>Short answer</strong>Yes, as of November 23, 2026. Channel, keyword and topic blocking, Hide Shorts, Hide comments and the tools inside YouTube were checked on youtube.com that day, and most of what this site says held up. Two gaps found in that first check were fixed in 1.4.4: a channel block now hides that channel's Shorts in Shorts shelves in search results, and a renamed channel is blocked on its own page by its @handle. Collab videos are now hidden when any channel named on them is blocked. Japanese, Chinese and Korean keywords now match inside a title, but that is unit-tested only, not re-checked on live YouTube. Some things still hold only in part; see Known limits.</p>
 
         <h2 id="how">How it was checked</h2>
         <ul>
           <li><strong>The real thing.</strong> Shun's extension files, loaded the way they ship, in Chromium on a computer, driven by test scripts, on the real youtube.com.</li>
           <li><strong>Signed out.</strong> The test browser never signs in to YouTube, and its cookie banner is answered with “Reject all”.</li>
           <li><strong>Before and after.</strong> Each check looks at the same page before and after a block, without reloading it, and counts what is shown and hidden. A screenshot and the raw counts are kept for each check.</li>
-          <li><strong>Version.</strong> Shun 1.4.3, the next version going to the Chrome Web Store. Its filtering code is the same as 1.4.2, so everything here applies to 1.4.2 too. If your version is older than 1.4.2, some results here may differ. To see your version, open <code>chrome://extensions</code>.</li>
+          <li><strong>Version.</strong> Shun 1.4.4, on the Chrome Web Store since November 24, 2026. The rows for Shorts shelves, collabs, a renamed channel's own page and importing a list were re-run on 1.4.4 on November 23, 2026. Other rows were checked the same day on the filtering code of 1.4.2 and 1.4.3, which 1.4.4 changes only where this page says so. If your version is older than 1.4.4, some results here may differ. To see your version, open <code>chrome://extensions</code>.</li>
           <li><strong>What couldn't be checked live.</strong> Signed out, YouTube shows no Home feed and no Subscriptions feed, and its 3-dot menu has no “Don't recommend channel”. Those parts were checked in Shun's code only, and are marked “Code only” below.</li>
         </ul>
 
@@ -131,9 +131,10 @@
               <tr><th scope="row">“Block channel permanently” in the 3-dot menu</th><td>Clicked it on a Veritasium video in search</td><td>Works: 16 of 16 of the channel's videos hidden within a fraction of a second</td></tr>
               <tr><th scope="row">Open tabs update</th><td>Every check above</td><td>Works: no reload needed</td></tr>
               <tr><th scope="row">“Block this channel” button</th><td>Video page and channel page</td><td>Works: next to Subscribe on video pages; at the end of the tab row on channel pages</td></tr>
-              <tr><th scope="row">Renamed channel, by @handle</th><td>Stored an old name plus @mkbhd</td><td>Partly: matched in search results and playlists; not in Up next (no handle shown there) or on the channel's own page</td></tr>
-              <tr><th scope="row">Shorts shelves</th><td>The Shorts shelf in “mkbhd” results</td><td>Doesn't work: a Short in a shelf doesn't show its channel, so a channel block can't hide it</td></tr>
-              <tr><th scope="row">Collabs</th><td>A video credited to “KSI and MrBeast”</td><td>Partly: hidden only when KSI was blocked with its @handle; blocking MrBeast alone didn't hide it</td></tr>
+              <tr><th scope="row">Renamed channel, by @handle</th><td>Stored an old name plus @mkbhd</td><td>Partly: matched in search results, playlists and, since 1.4.4, on the channel's own page (checked: stored an old name plus @mkbhd, opened /@mkbhd, the blocked banner showed); not in Up next, where YouTube shows no handle</td></tr>
+              <tr><th scope="row">Shorts shelves</th><td>The Shorts shelf in “mkbhd” results</td><td>Works since 1.4.4, in search results: with MKBHD blocked, its Short in the shelf was hidden and the other 16 Shorts stayed; nothing is looked up while no channel is blocked. Home and sidebar shelves don't show signed out: Code only. A Short whose owner YouTube won't give out (embedding off) stays visible</td></tr>
+              <tr><th scope="row">Collabs</th><td>A video credited to “KSI and MrBeast” (search results)</td><td>Works since 1.4.4: hidden when either channel was blocked; the 3-dot menu offers one Block item per channel, never the combined name. A channel behind “and 2 more” isn't named on the card, so it isn't matched</td></tr>
+              <tr><th scope="row">Import from another blocker</th><td>Options page: BlockTube and Channel Blocker exports and a pasted list; then a search for “mkbhd”</td><td>Works: channels and words added, regex rules and unusable entries reported as skipped; an imported @mkbhd hid its search results</td></tr>
               <tr><th scope="row">Home</th><td>Signed out, Home has no feed</td><td>Code only</td></tr>
             </tbody>
           </table>
@@ -154,7 +155,7 @@
               <tr><th scope="row">Switching off a topic term</th><td>Gaming on, “minecraft” switched off</td><td>Works: Minecraft titles stay</td></tr>
               <tr><th scope="row">Discussion and history titles</th><td>Topics on, searches for history and documentary videos</td><td>Partly: Gaming let 9 titles through, AI Hype 3 and News 4; Tech and Sports let none through</td></tr>
               <tr><th scope="row">Auto-tag and Untag</th><td>Gaming on, a gaming channel's search results</td><td>Works: the channel was tagged after 3 hidden videos; Untag brought it back and it wasn't tagged again</td></tr>
-              <tr><th scope="row">Other alphabets</th><td>Japanese searches, plus checks of the matching code for Chinese and Korean</td><td>Partly: Latin and Cyrillic work; “ゲーム” matched 1 of 20 Japanese titles containing it, and Chinese words inside longer runs of characters don't match</td></tr>
+              <tr><th scope="row">Other alphabets</th><td>Japanese searches, plus checks of the matching code for Chinese and Korean</td><td>Partly: Latin and Cyrillic work. At the time of that check, “ゲーム” matched 1 of 20 Japanese titles containing it. Since v1.4.4 Japanese, Chinese and Korean words match anywhere inside a title; unit tests cover this, and it has not been re-checked on live YouTube</td></tr>
               <tr><th scope="row">Shun+ and Scan</th><td>Hovered a video; ran Scan on a channel page</td><td>Works: Scan suggested 40 words and phrases from 60 titles</td></tr>
             </tbody>
           </table>
@@ -185,10 +186,10 @@
 
         <h2 id="limits">Known limits</h2>
         <ul>
-          <li><strong>Shorts shelves and channel blocks.</strong> A Short inside a Shorts shelf doesn't show which channel made it, so a channel block can't hide it. Hide Shorts removes the shelves, and a keyword or topic in a Short's title hides it from the shelf.</li>
-          <li><strong>Japanese and Chinese titles.</strong> A word matches only where it stands apart from other letters. These languages don't put spaces between words, so a word in the middle of a title often won't match.</li>
-          <li><strong>@handle.</strong> Used where YouTube shows it next to a video: search results and playlists. A renamed channel's own page and Up next still match by name only.</li>
-          <li><strong>Collabs.</strong> A video credited to several channels isn't always hidden when you block one of them.</li>
+          <li><strong>Shorts shelves and channel blocks.</strong> A Short inside a Shorts shelf doesn't show which channel made it, so since 1.4.4 Shun asks youtube.com (the Short's ID only) and hides it when the answer arrives. Checked in search results only. A Short whose owner can't be looked up (for instance embedding is off) stays visible; Hide Shorts, a keyword or a topic still hide it.</li>
+          <li><strong>Japanese, Chinese and Korean titles.</strong> A word matches anywhere inside a title, so a short word (even a single character) can also hide titles where it is part of a longer word. Unit-tested only, not re-checked on live YouTube.</li>
+          <li><strong>@handle.</strong> Used where YouTube shows it: next to a video in search results and playlists, and on a channel's own page. Up next shows no handle, so it matches by name only.</li>
+          <li><strong>Collabs.</strong> A collab card names only some channels (“KSI and 2 more”). The ones it doesn't name can't be matched.</li>
           <li><strong>Tech and Sports.</strong> These topics let almost no history or documentary titles through, unlike Gaming, AI Hype and News.</li>
           <li><strong>“Watch just now”.</strong> Shun asks before playing a video with a blocked word or topic only when that video slips past the filter. In the check, the matching video was hidden before it could be clicked, so the site no longer lists it as a feature.</li>
           <li><strong>Shorts previews in search.</strong> With Hide Shorts on, the floating preview YouTube shows when you hover a Shorts result could still appear.</li>
@@ -197,13 +198,22 @@
         <p>See something here that's no longer true? Use Report a Bug in Shun's Settings or email <a href="mailto:factuallogic98@gmail.com">Shun support (factuallogic98@gmail.com)</a>.</p>
 
         <h2 id="changelog">Recent versions</h2>
-        <h3>1.4.3 (going to the Chrome Web Store next)</h3>
+        <h3>1.4.4 (Chrome Web Store, November 24, 2026)</h3>
+        <ul>
+          <li>Blocking a channel now also hides its Shorts inside Shorts shelves in search results.</li>
+          <li>Collab videos are hidden when any channel named on them is blocked, and the 3-dot menu offers one Block item per channel.</li>
+          <li>A renamed channel is blocked on its own page by its @handle.</li>
+          <li>Undo for a few seconds after blocking a channel, and Manage subscription for Pro users.</li>
+          <li>Free import from BlockTube, Channel Blocker and pasted lists.</li>
+          <li>Japanese, Chinese and Korean keywords match anywhere inside a title (unit-tested only).</li>
+        </ul>
+        <h3>1.4.3 (November 23, 2026)</h3>
         <ul>
           <li>New store name, “Shun for YouTube: Block Channels, Keywords &amp; Topics”, and a description that starts with channel blocking.</li>
           <li>The plan picker shows the <a href="refund-policy.html">30-day money-back guarantee</a>.</li>
-          <li>Blocking works exactly as in 1.4.2.</li>
+          <li>Blocking works as in 1.4.2.</li>
         </ul>
-        <h3>1.4.2 (built November 14, 2026; in Chrome Web Store review)</h3>
+        <h3>1.4.2 (built November 14, 2026; replaced by 1.4.3 before release)</h3>
         <ul>
           <li>CleanFeed is now called Shun: same extension, same lists. Existing users see a one-time notice, and the quick-add button is now Shun+.</li>
           <li>Keyword and topic blocking check the video title only, not the description.</li>
